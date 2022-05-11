@@ -13,6 +13,25 @@ const typeDefs = gql`
     user: User
   }
 
+  type Company {
+    _id: ID
+    name: String
+    employees: [User]
+    days: [Day]
+  }
+
+  type Day {
+    _id: ID
+    date: String
+    shifts: [Shift]
+  }
+
+  type Shift {
+    startTime: String
+    endTime: String
+    day: Day
+  }
+
   type Query {
     users: [User]
     user(id: ID!): User
